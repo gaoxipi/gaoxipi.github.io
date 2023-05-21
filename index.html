@@ -152,6 +152,212 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C#快速入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="C-快速入门"><a href="#C-快速入门" class="headerlink" title="C#快速入门"></a>C#快速入门</h1><p>​	<strong>一个 C# 程序主要包括以下部分：</strong></p>
+<ul>
+<li>命名空间声明（Namespace declaration）</li>
+<li>一个 class</li>
+<li>Class 方法</li>
+<li>Class 属性</li>
+<li>一个 Main 方法</li>
+<li>语句（Statements）&amp; 表达式（Expressions）</li>
+<li>注释</li>
+</ul>
+<p><strong>C# 文件的后缀为 .cs。</strong></p>
+<h6 id="第一个c-程序-HelloWorld"><a href="#第一个c-程序-HelloWorld" class="headerlink" title="第一个c#程序 HelloWorld"></a>第一个c#程序 HelloWorld</h6><p> <code>using System;</code></p>
+<p> <code>namespace Demo&#123;</code></p>
+<p>​	<code>class HelloWorld&#123;</code></p>
+<p>​			<code>static void Main()&#123;</code></p>
+<p>​					<code>Console.WriteLine(&quot;Hello World!&quot;);</code></p>
+<p>​					<code>Console.ReadKey();</code></p>
+<p>​		<code>&#125;</code></p>
+<p>​	<code>&#125;``&#125;</code></p>
+<h5 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h5><ul>
+<li>C# 是大小写敏感的。</li>
+<li>所有的语句和表达式必须以分号（;）结尾。</li>
+<li>程序的执行从 Main 方法开始。</li>
+<li>与 Java 不同的是，文件名可以不同于类的名称。</li>
+</ul>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>标识符是用来识别类、变量、函数或任何其它用户定义的项目。在 C# 中，类的命名必须遵循如下基本规则：</p>
+<ul>
+<li>标识符必须以字母、下划线或 <strong>@</strong> 开头，后面可以跟一系列的字母、数字（ 0 - 9 ）、下划线（ _ ）、@。</li>
+<li>标识符中的第一个字符不能是数字。</li>
+<li>标识符必须不包含任何嵌入的空格或符号，比如 ? - +! # % ^ &amp; * ( ) [ ] { } . ; : “ ‘ &#x2F; \。</li>
+<li>标识符不能是 C# 关键字。除非它们有一个 @ 前缀。 例如，@if 是有效的标识符，但 if 不是，因为 if 是关键字。</li>
+<li>标识符必须区分大小写。大写字母和小写字母被认为是不同的字母。</li>
+<li>不能与C#的类库名称相同。</li>
+</ul>
+<h3 id="C-数据类型"><a href="#C-数据类型" class="headerlink" title="C#数据类型"></a>C#数据类型</h3><p>在 C# 中，变量分为以下几种类型：</p>
+<ul>
+<li><p><strong>值类型（Value types）</strong></p>
+<p>值类型直接包含数据。比如 <strong>int、char、float</strong>，它们分别存储数字、字符、浮点数。当您声明一个 <strong>int</strong> 类型时，系统分配内存来存储值。</p>
+</li>
+<li><p><strong>引用类型（Reference types）</strong></p>
+<p>引用类型不包含存储在变量中的实际数据，但它们包含对变量的引用。 使用多个变量时，引用类型可以指向一个内存位置。如果内存位置的数据是由一个变量改变的，其他变量会自动反映这种值的变化。<strong>内置的</strong> 引用类型有：<strong>object</strong>、<strong>dynamic</strong> 和 <strong>string</strong>。</p>
+</li>
+<li><p><strong>指针类型（Pointer types）</strong></p>
+<p>指针类型变量存储另一种类型的内存地址。C# 中的指针与 C 或 C++ 中的指针有相同的功能。</p>
+</li>
+</ul>
+<h3 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h3><p>常量是使用 <strong>const</strong> 关键字来定义的 。定义一个常量的语法如下：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &lt;data_type&gt; &lt;constant_name&gt; = <span class="keyword">value</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="整数常量"><a href="#整数常量" class="headerlink" title="整数常量"></a>整数常量</h3><p>整数常量可以是十进制、八进制或十六进制的常量。前缀指定基数：0x 或 0X 表示十六进制，0 表示八进制，没有前缀则表示十进制。</p>
+<p>整数常量也可以有后缀，可以是 U 和 L 的组合，其中，U 和 L 分别表示 unsigned 和 long。后缀可以是大写或者小写，多个后缀以任意顺序进行组合。</p>
+<h3 id="浮点常量"><a href="#浮点常量" class="headerlink" title="浮点常量"></a>浮点常量</h3><p>一个浮点常量是由整数部分、小数点、小数部分和指数部分组成。您可以使用小数形式或者指数形式来表示浮点常量。</p>
+<p>使用浮点形式表示时，必须包含小数点、指数或同时包含两者。使用指数形式表示时，必须包含整数部分、小数部分或同时包含两者。有符号的指数是用 e 或 E 表示的。</p>
+<h3 id="字符常量"><a href="#字符常量" class="headerlink" title="字符常量"></a>字符常量</h3><p>字符常量是括在单引号里，例如，’x’，且可存储在一个简单的字符类型变量中。一个字符常量可以是一个普通字符（例如 ‘x’）、一个转义序列（例如 ‘\t’）或者一个通用字符（例如 ‘\u02C0’）。</p>
+<h3 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h3><p>字符串常量是括在双引号 <strong>“”</strong> 里，或者是括在 <strong>@””</strong> 里。字符串常量包含的字符与字符常量相似，可以是：普通字符、转义序列和通用字符</p>
+<p>使用字符串常量时，可以把一个很长的行拆成多个行，可以使用空格分隔各个部分。</p>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>C# 中 <strong>switch</strong> 语句的语法：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression)&#123;</span><br><span class="line">    <span class="keyword">case</span> constant-expression  :</span><br><span class="line">       statement(s);</span><br><span class="line">       <span class="keyword">break</span>; </span><br><span class="line">    <span class="keyword">case</span> constant-expression  :</span><br><span class="line">       statement(s);</span><br><span class="line">       <span class="keyword">break</span>; </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/* 您可以有任意数量的 case 语句 */</span></span><br><span class="line">    <span class="literal">default</span> : <span class="comment">/* 可选的 */</span></span><br><span class="line">       statement(s);</span><br><span class="line">       <span class="keyword">break</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>switch</strong> 语句必须遵循下面的规则：</p>
+<ul>
+<li><strong>switch</strong> 语句中的 <strong>expression</strong> 必须是一个整型或枚举类型，或者是一个 class 类型，其中 class 有一个单一的转换函数将其转换为整型或枚举类型。</li>
+<li>在一个 switch 中可以有任意数量的 case 语句。每个 case 后跟一个要比较的值和一个冒号。</li>
+<li>case 的 <strong>constant-expression</strong> 必须与 switch 中的变量具有相同的数据类型，且必须是一个常量。</li>
+<li>当被测试的变量等于 case 中的常量时，case 后跟的语句将被执行，直到遇到 <strong>break</strong> 语句为止。</li>
+<li>当遇到 <strong>break</strong> 语句时，switch 终止，控制流将跳转到 switch 语句后的下一行。</li>
+<li>不是每一个 case 都需要包含 <strong>break</strong>。如果 case 语句为空，则可以不包含 <strong>break</strong>，控制流将会 <em>继续</em> 后续的 case，直到遇到 break 为止。</li>
+<li>C# 不允许从一个 case 部分继续执行到下一个 case 部分。如果 case 语句中有已经执行，则必须包含 <strong>break</strong> 或其他跳转语句。</li>
+<li>一个 <strong>switch</strong> 语句可以有一个可选的 <strong>default</strong> 语句，在 switch 的结尾。default 语句用于在上面所有 case 都不为 true 时执行的一个任务。default 也需要包含 <strong>break</strong> 语句，这是一个良好的习惯。</li>
+<li>C# 不支持从一个 case 标签显式贯穿到另一个 case 标签。如果要使 C# 支持从一个 case 标签显式贯穿到另一个 case 标签，可以使用 goto 一个 switch-case 或 goto default。</li>
+</ul>
+<h3 id="C-访问修饰符"><a href="#C-访问修饰符" class="headerlink" title="C# 访问修饰符"></a>C# 访问修饰符</h3><ul>
+<li><p>public：所有对象都可以访问；</p>
+</li>
+<li><p>private：对象本身在对象内部可以访问；</p>
+</li>
+<li><p>protected：只有该类对象及其子类对象可以访问</p>
+</li>
+<li><p>internal：同一个程序集的对象可以访问；</p>
+</li>
+<li><p>protected internal：访问限于当前程序集或派生自包含类的类型。</p>
+<p>如果没有指定访问修饰符，则使用类成员的默认访问修饰符，即为 <strong>private</strong>。</p>
+</li>
+</ul>
+<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><h4 id="按值传递参数"><a href="#按值传递参数" class="headerlink" title="按值传递参数"></a>按值传递参数</h4><p>这是参数传递的默认方式。在这种方式下，当调用一个方法时，会为每个值参数创建一个新的存储位置。</p>
+<p>实际参数的值会复制给形参，实参和形参使用的是两个不同内存中的值。所以，当形参的值发生改变时，不会影响实参的值，从而保证了实参数据的安全。</p>
+<h4 id="按引用传递参数"><a href="#按引用传递参数" class="headerlink" title="按引用传递参数"></a>按引用传递参数</h4><p>引用参数是一个对变量的<strong>内存位置的引用</strong>。当按引用传递参数时，与值参数不同的是，它不会为这些参数创建一个新的存储位置。引用参数表示与提供给方法的实际参数具有相同的内存位置。</p>
+<p>在 C# 中，使用 <strong>ref</strong> 关键字声明引用参数。</p>
+<h4 id="按输出传递参数"><a href="#按输出传递参数" class="headerlink" title="按输出传递参数"></a>按输出传递参数</h4><p>return 语句可用于只从函数中返回一个值。但是，可以使用 <strong>输出参数</strong> 来从函数中返回两个值。输出参数会把方法输出的数据赋给自己，其他方面与引用参数相似。</p>
+<h3 id="C-可空类型（Nullable）"><a href="#C-可空类型（Nullable）" class="headerlink" title="C# 可空类型（Nullable）"></a>C# 可空类型（Nullable）</h3><p><strong>?</strong> 单问号用于对 <strong>int、double、bool</strong> 等无法直接赋值为 null 的数据类型进行 null 的赋值，意思是这个数据类型是 Nullable 类型的。</p>
+<p><strong>??</strong> 双问号用于判断一个变量在为 null 的时候返回一个指定的值。</p>
+<p>Null 合并运算符（**??**）用于定义可空类型和引用类型的默认值。Null 合并运算符为类型转换定义了一个预设值，以防可空类型的值为 Null。Null 合并运算符把操作数类型隐式转换为另一个可空（或不可空）的值类型的操作数的类型。</p>
+<p>如果第一个操作数的值为 null，则运算符返回第二个操作数的值，否则返回第一个操作数的值。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h4 id="声明数组"><a href="#声明数组" class="headerlink" title="声明数组"></a>声明数组</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datatype[] arrayName;</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化数组"><a href="#初始化数组" class="headerlink" title="初始化数组"></a>初始化数组</h3><p>声明一个数组不会在内存中初始化数组。当初始化数组变量时，您可以赋值给数组。</p>
+<p>数组是一个引用类型，所以您需要使用 <strong>new</strong> 关键字来创建数组的实例。</p>
+<p>例如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span>[] balance = <span class="keyword">new</span> <span class="built_in">double</span>[<span class="number">10</span>];</span><br></pre></td></tr></table></figure>
+
+<p>可以在声明数组的同时给数组赋值，比如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span>[] balance = &#123; <span class="number">2340.0</span>, <span class="number">4523.69</span>, <span class="number">3421.0</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>也可以创建并初始化一个数组，比如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> [] marks = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>]  &#123; <span class="number">99</span>,  <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在上述情况下，你也可以省略数组的大小，比如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> [] marks = <span class="keyword">new</span> <span class="built_in">int</span>[]  &#123; <span class="number">99</span>,  <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><h4 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h4><p>多维数组可以通过在括号内为每行指定值来进行初始化。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> [,] a = <span class="keyword">new</span> <span class="built_in">int</span> [<span class="number">3</span>,<span class="number">4</span>] &#123;</span><br><span class="line"> &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125; ,   <span class="comment">/*  初始化索引号为 0 的行 */</span></span><br><span class="line"> &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125; ,   <span class="comment">/*  初始化索引号为 1 的行 */</span></span><br><span class="line"> &#123;<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>&#125;   <span class="comment">/*  初始化索引号为 2 的行 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="交错数组"><a href="#交错数组" class="headerlink" title="交错数组"></a>交错数组</h3><p>交错数组是数组的数组。</p>
+<p>交错数组是一维数组。</p>
+<p>您可以声明一个带有 <strong>int</strong> 值的交错数组 <em>scores</em>，如下所示：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> [][] scores;</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数数组"><a href="#参数数组" class="headerlink" title="参数数组"></a>参数数组</h3><p>有时，当声明一个方法时，不能确定要传递给函数作为参数的参数数目。C# 参数数组解决了这个问题，参数数组通常用于传递未知数量的参数给函数。</p>
+<h2 id="params-关键字"><a href="#params-关键字" class="headerlink" title="params 关键字"></a>params 关键字</h2><p>在使用数组作为形参时，C# 提供了 params 关键字，使调用数组为形参的方法时，既可以传递数组实参，也可以传递一组数组元素。params 的使用格式为：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 返回类型 方法名称( <span class="keyword">params</span> 类型名称[] 数组名称 )</span><br></pre></td></tr></table></figure>
+
+<p>带params和不带params的方法只能存在一个，不能仅凭params来重载一个方法</p>
+<h3 id="结构体（Struct）"><a href="#结构体（Struct）" class="headerlink" title="结构体（Struct）"></a>结构体（Struct）</h3><p>在 C# 中，结构体是值类型数据结构。</p>
+<h4 id="C-结构的特点"><a href="#C-结构的特点" class="headerlink" title="C# 结构的特点"></a>C# 结构的特点</h4><p>您已经用了一个简单的名为 Books 的结构。在 C# 中的结构与传统的 C 或 C++ 中的结构不同。C# 中的结构有以下特点：</p>
+<ul>
+<li>结构可带有方法、字段、索引、属性、运算符方法和事件。</li>
+<li>结构可定义构造函数，但不能定义析构函数。但是，您不能为结构定义无参构造函数。无参构造函数(默认)是自动定义的，且不能被改变。</li>
+<li>与类不同，结构不能继承其他的结构或类。</li>
+<li>结构不能作为其他结构或类的基础结构。</li>
+<li>结构可实现一个或多个接口。</li>
+<li>结构成员不能指定为 abstract、virtual 或 protected。</li>
+<li>当您使用 <strong>New</strong> 操作符创建一个结构对象时，会调用适当的构造函数来创建结构。与类不同，结构可以不使用 New 操作符即可被实例化。</li>
+<li>如果不使用 New 操作符，只有在所有的字段都被初始化之后，字段才被赋值，对象才被使用。</li>
+</ul>
+<h4 id="类-vs-结构"><a href="#类-vs-结构" class="headerlink" title="类 vs 结构"></a>类 vs 结构</h4><p>类和结构有以下几个基本的不同点：</p>
+<ul>
+<li>类是引用类型，结构是值类型。</li>
+<li>结构不支持继承。</li>
+<li>结构不能声明默认的构造函数。</li>
+</ul>
+<p>类的对象是存储在堆空间中，结构存储在栈中。</p>
+<h3 id="枚举（Enum）"><a href="#枚举（Enum）" class="headerlink" title="枚举（Enum）"></a>枚举（Enum）</h3><p>枚举是一组命名整型常量。枚举类型是使用 <strong>enum</strong> 关键字声明的。</p>
+<p>C# 枚举是值类型。换句话说，枚举包含自己的值，且不能继承或传递继承。</p>
+<h4 id="声明-enum-变量"><a href="#声明-enum-变量" class="headerlink" title="声明 enum 变量"></a>声明 <em>enum</em> 变量</h4><p>声明枚举的一般语法：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> &lt;enum_name&gt;</span><br><span class="line">&#123; </span><br><span class="line">    enumeration list </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-中的析构函数"><a href="#C-中的析构函数" class="headerlink" title="C# 中的析构函数"></a>C# 中的析构函数</h3><p>类的 <strong>析构函数</strong> 是类的一个特殊的成员函数，当类的对象超出范围时执行。</p>
+<p>析构函数的名称是在类的名称前加上一个波浪形（~）作为前缀，它不返回值，也不带任何参数。</p>
+<p>析构函数用于在结束程序（比如关闭文件、释放内存等）之前释放资源。析构函数不能继承或重载。</p>
+<h3 id="C-多重继承"><a href="#C-多重继承" class="headerlink" title="C# 多重继承"></a>C# 多重继承</h3><p>多重继承指的是一个类别可以同时从多于一个父类继承行为与特征的功能。与单一继承相对，单一继承指一个类别只可以继承自一个父类。<strong>C# 不支持多重继承</strong>。但是，可以使用接口来实现多重继承。</p>
+<h3 id="动态多态性"><a href="#动态多态性" class="headerlink" title="动态多态性"></a>动态多态性</h3><p>C# 允许您使用关键字 <strong>abstract</strong> 创建抽象类，用于提供接口的部分类的实现。当一个派生类继承自该抽象类时，实现即完成。<strong>抽象类</strong>包含抽象方法，抽象方法可被派生类实现。派生类具有更专业的功能。</p>
+<p>请注意，下面是有关抽象类的一些规则：</p>
+<ul>
+<li>您不能创建一个抽象类的实例。</li>
+<li>您不能在一个抽象类外部声明一个抽象方法。</li>
+<li>通过在类定义前面放置关键字 <strong>sealed</strong>，可以将类声明为<strong>密封类</strong>。当一个类被声明为 <strong>sealed</strong> 时，它不能被继承。抽象类不能被声明为 sealed。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/05/21/C#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
