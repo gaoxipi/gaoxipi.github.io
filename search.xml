@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>My Firist Blog</title>
-    <url>/2023/05/22/My-Firist-Blog/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2>]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构课程设计—预习日志</title>
     <url>/2023/05/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E2%80%94%E9%A2%84%E4%B9%A0%E6%97%A5%E5%BF%97/</url>
     <content><![CDATA[<h1 id="课程设计预习日志一"><a href="#课程设计预习日志一" class="headerlink" title="课程设计预习日志一"></a>课程设计预习日志一</h1><h2 id="一、数据结构类型定义"><a href="#一、数据结构类型定义" class="headerlink" title="一、数据结构类型定义"></a>一、数据结构类型定义</h2><h3 id="1、队伍信息"><a href="#1、队伍信息" class="headerlink" title="1、队伍信息"></a>1、队伍信息</h3><p>队伍的信息定义为Team类，成员变量为</p>
@@ -35,6 +27,17 @@
 <p>2.打开文件</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">file.<span class="built_in">open</span>(<span class="string">&quot;team.txt&quot;</span>,ios::in);<span class="comment">//ios::in为打开模式，in表示只读</span></span><br></pre></td></tr></table></figure>
 <p>3.读取文件<br>使用<strong>getline（）</strong>函数，读取每一行的数据</p>
+<h1 id="课程设计预习日志二"><a href="#课程设计预习日志二" class="headerlink" title="课程设计预习日志二"></a>课程设计预习日志二</h1><h2 id="一、队伍信息初始化"><a href="#一、队伍信息初始化" class="headerlink" title="一、队伍信息初始化"></a>一、队伍信息初始化</h2><p>队伍信息保存在<strong>team.txt</strong>文件中，需要先读入文件中的信息保存至一个数据容器中才能进行后续操作。在此项目中选用<strong>线性表</strong>作为数据容器，因为线性表具有<strong>随机存取</strong>的特性，方便队伍的增删改查。</p>
+<h3 id="1、定义线性表"><a href="#1、定义线性表" class="headerlink" title="1、定义线性表"></a>1、定义线性表</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Team* team = <span class="keyword">new</span> Team[maxn];<span class="comment">//maxn为const常量，值为1000，限定了队伍数量的上限</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、读入数据"><a href="#2、读入数据" class="headerlink" title="2、读入数据"></a>2、读入数据</h3><p>打开文件后先将每一行的数据保存至string类型的<strong>info数组</strong>中</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ifstream file;</span><br><span class="line">file.<span class="built_in">open</span>(<span class="string">&quot;team.txt&quot;</span>, ios::in <span class="comment">/*| ios::binary*/</span>);</span><br><span class="line">string info;</span><br><span class="line"><span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">getline</span>(file, info)) &#123;</span><br><span class="line">	teamInfo[count] = info;</span><br><span class="line">	<span class="built_in">trim</span>(teamInfo[count]);<span class="comment">//trim函数用于删除每行中的缩进符&quot;\t&quot;</span></span><br><span class="line">	teamInfo[count] +=<span class="string">&#x27;#&#x27;</span>;<span class="comment">//在末尾添加&#x27;#&#x27;，便于后续处理</span></span><br><span class="line">	count++;</span><br><span class="line">&#125;</span><br><span class="line">file.<span class="built_in">close</span>();</span><br><span class="line">amount = count<span class="number">-1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中<strong>count</strong>记录行数，<strong>amount</strong>记录队伍数量</p>
+<h3 id="3、保存至线性表"><a href="#3、保存至线性表" class="headerlink" title="3、保存至线性表"></a>3、保存至线性表</h3><p>线性表<strong>team</strong>是一个Team类对象数组，因此保存数据时需先分割数据，再进行赋值，每两个数据之间采用’#‘进行分割</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= amount; i++) &#123;</span><br><span class="line">		string* str = <span class="keyword">new</span> string[<span class="number">6</span>];</span><br><span class="line">		<span class="type">int</span> start = <span class="number">0</span>;</span><br><span class="line">		<span class="type">int</span> end = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">6</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((end = teamInfo[i].<span class="built_in">find</span>(<span class="string">&#x27;#&#x27;</span>, start)) != string::npos) &#123;</span><br><span class="line">				str[j] = teamInfo[i].<span class="built_in">substr</span>(start, (<span class="type">double</span>)end - start);</span><br><span class="line">				start = end + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function">Team <span class="title">t</span><span class="params">(str[<span class="number">0</span>], str[<span class="number">1</span>], str[<span class="number">2</span>], str[<span class="number">3</span>], str[<span class="number">4</span>], str[<span class="number">5</span>])</span></span>;</span><br><span class="line">		team[i] = t;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>tip：</strong>队伍的信息从team[1]开始，到team[amount]结束，team[0]为标题行</p>
 ]]></content>
       <tags>
         <tag>课程设计</tag>
